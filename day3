@@ -2,3 +2,33 @@ excercise -20
 
 update Salesman set SNAME = 'Jenny' , LOCATION = 'Bristol' where SID in 3
 
+EXCERCISE -21
+
+delete FROM SaleDetail where SALEID=1004;
+
+EXCERCISE -22
+
+DELETE FROM SaleDetail where QUANTITY >5;
+
+Assignment -16
+
+insert into Article (ArCode,ArName,Rate,Quantity,Class) values ('A1001','Mouse',500,0,C)
+
+Assignment -17
+
+insert into Store (StoreName,Location,ManagerName) values ('Loyal World','Infy Campus, Mysore','Rohan Kumar')
+
+Assignment -18
+insert into Bill (BillNo,StoreName,Shopperid,ArCode,Amount,BillDate,Quantity) values (1001,'Loayal World',101,'A1001',1000,'20-OCT-15',2)
+
+Assignment -19
+
+insert into Supplier (Supplierid,Name,ContactNo,City) values ('S501','Avaya Ltd',9012345678,'Mysore')
+
+Assignment - 20
+
+select DESCR,PRICE from Item where PRICE = 2500 or PRICE =1800
+
+Assignment - 29
+
+select itemcode,descr,price from Item where descr LIKE '_r%'
