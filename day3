@@ -1,0 +1,4 @@
+excercise -20
+
+update Salesman set SNAME = 'Jenny' , LOCATION = 'Bristol' where SID in 3
+
