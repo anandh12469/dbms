@@ -1,0 +1,12 @@
+Excercise -23
+
+select PRODID,PDESC,CATEGORY from Product where lower(CATEGORY) = 'electronics'
+
+eXCERCISE -24
+
+select PRODID,SUBSTR(PDESC,1,5) as PDESC,CATEGORY from Product
+
+Excercise -27
+
+SELECT PRODID,CATEGORY,PRICE,DISCOUNT FROM Product ORDER BY CATEGORY DESC,PRICE ASC
+
