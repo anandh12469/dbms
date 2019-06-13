@@ -117,4 +117,30 @@ Assignment -32
 
 select distinct itemtype,CATEGORY from item
 
+Assignment -33
 
+select EmpId,Salary as "Current Salary",(salary+(salary/10)) as "New Salary",(salary/10) as "Incremented Amount" from EmpDetails
+
+Assignment -34
+
+insert into City (City) values ('Mysore') 
+
+Assignment - 35
+
+insert into Address (HouseNo,Street,city,zip,state) values (350,'Electronics City','Mysore',570018,'Karnataka')
+
+Assignment -36
+
+insert into Article (ArCode,ArName,Rate,Quantity,Class) values ('A1002','Keyboard',1000,10,'B')
+
+aSSIGNMENT -37
+
+select Quotationid,QDATE,QUOTEDPRICE from Quotation where QUOTEDPRICE > 1400 and QUOTEDPRICE < 2150
+
+Assignment -38
+
+SELECT ITEMTYPE,DESCR,PRICE FROM Item where price > 4000
+
+Assignment -39
+
+select DESIGNATION,SALARY from EmpDetails where SALARY between 2500 and 5000 
