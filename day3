@@ -1,3 +1,43 @@
+Excercise -10
+
+insert into salesman (sid,sname,location)  values (11,'Elizabeth','London')
+
+Excercise-11
+
+insert into Product (ProdId,PDesc,Price,Category,Discount) values (110,'Bat',50,'Sports',NULL)
+
+Excercise-12
+
+select * from Product
+
+Excercise-13
+
+select PRODID,PRICE,CATEGORY from Product;
+
+Excercise-14
+
+select DISTINCT category from product
+
+Excercise-15
+
+SELECT PRODID,PDESC,CATEGORY,DISCOUNT FROM PRODUCT WHERE CATEGORY ='Apparel'
+
+Excercise-16
+
+SELECT PRODID,PDESC,CATEGORY,DISCOUNT FROM PRODUCT WHERE PDESC IS NULL
+
+Excercise-17
+
+SELECT PRODID,PDESC,CATEGORY,DISCOUNT FROM PRODUCT WHERE CATEGORY ='Apparel' AND DISCOUNT > 5
+
+Excercise-18
+
+update Product set DISCOUNT = 25 where CATEGORY in ('Sports');
+
+Excercise -19
+
+update Product set PRICE = 50 where CATEGORY in ('Apparel') and PDESC in ('Trouser');
+
 excercise -20
 
 update Salesman set SNAME = 'Jenny' , LOCATION = 'Bristol' where SID in 3
@@ -29,6 +69,52 @@ Assignment - 20
 
 select DESCR,PRICE from Item where PRICE = 2500 or PRICE =1800
 
+Assignment -21
+
+select quotationid,sname,itemcode,quotedprice,qdate,QSTATUS from Quotation where QSTATUS !=  'Accepted'
+
+Assignment -22
+
+select DESIGNATION, SALARY FROM EmpDetails where DESIGNATION = 'Manager' or DESIGNATION = 'Billing Staff'
+
+Assignment -23
+
+select ROID, LOCATION FROM RetailOutlet where ROID='R1003'
+
+Assignment -24
+
+select ORDERID,QUOTATIONID,STATUS FROM Orders where OrderDate BETWEEN '1-DEC-2014' AND '1-JAN-2015'
+
+Assignment -25
+
+select ITEMCODE,DESCR,PRICE FROM Item where DESCR LIKE '%Shirt' and CATEGORY = 'B'
+
+Assignment -26
+
+select distinct designation,salary from EmpDetails
+
+Assignment -27
+
+select ITEMCODE,descr,price from Item
+
+Assignment -28
+
+select quotationid,sname from Quotation where qstatus = 'Accepted' or qstatus='Rejected'
+
 Assignment - 29
 
 select itemcode,descr,price from Item where descr LIKE '_r%'
+
+Assignment -30
+
+select DISTINCT ItemType from Item
+
+Assignment -31
+
+select orderid,quotationid,status,pymtdate from Orders where status = 'Ordered'
+
+Assignment -32
+
+select distinct itemtype,CATEGORY from item
+
+
