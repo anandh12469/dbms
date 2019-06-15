@@ -1,0 +1,116 @@
+Ex -3
+CREATE TABLE player(PId INTEGER CONSTRAINT acc_pid_PK PRIMARY KEY, PName VARCHAR2(20) CONSTRAINT acc_name_nn NOT NULL, 
+Ranking INTEGER);
+
+Ex-4
+CREATE TABLE Tournament(TId INTEGER CONSTRAINT acc_pk PRIMARY KEY, TName VARCHAR2(30) CONSTRAINT tour_var_nn NOT NULL,
+StartDt DATE CONSTRAINT tour_stra_nn NOT NULL, EndDt DATE CONSTRAINT tour_end_nn NOT NULL, 
+Prize INTEGER CONSTRAINT tour_pri_nn NOT NULL);
+
+Ex -5 
+create table Match 
+( 
+MId integer NOT NULL,
+TId integer CONSTRAINT fk_Match_Tournament references Tournament(TId),
+Player1 integer CONSTRAINT fk_pla references Player(PId),
+Player2 integer CONSTRAINT fk_plaq references Player(PID),
+MatchDt DATE NOT NULL,
+Winner integer CONSTRAINT fk_win  references Player(PId),
+Score varchar2(30) NOT NULL,
+CONSTRAINT pk_mid primary key (MId,TId),
+CONSTRAINT ch_pl21 CHECK (Player1 <> Player2)
+);
+
+Ex-6
+ALTER TABLE Player ADD(MatchesPlayed NUMBER,MatchesWon NUMBER);
+
+Ex -7
+
+ALTER TABLE Player DROP(ContactNo);
+
+Ex-8
+
+ALTER TABLE Player RENAME COLUMN PId TO PlayerId;
+
+Ex-9
+
+ALTER TABLE Player MODIFY PName VARCHAR2(50);
+
+Assignament -2
+CREATE TABLE Shopper(Shopperid INTEGER CONSTRAINT acc_shop_pk PRIMARY KEY, ShopperName VARCHAR2(20) CONSTRAINT acc_nn NOT NULL,
+Gender CHAR(6) CONSTRAINT shop_ck CHECK(Gender IN('Male','Female')),MobileNo NUMBER CONSTRAINT shop_nn NOT NULL,
+Address VARCHAR2(50));
+
+Assignment-3
+ALTER TABLE Shopper MODIFY MobileNo VARCHAR2(15);
+
+Assignament -4
+
+CREATE TABLE Article(
+	ArCode CHAR(5) PRIMARY KEY  CHECK(ArCode LIKE 'A%'),
+	ArName VARCHAR2(30) NOT NULL,
+	RATE NUMBER(8,2),
+	Quantity NUMBER(4) DEFAULT 0 CHECK(Quantity>=0),
+	Class CHAR(1) CHECK(Class IN('A','B','C'))
+	)
+
+
+Assignment-5
+
+CREATE TABLE Store(Name VARCHAR2(20) CONSTRAINT acc_pk PRIMARY KEY,
+Location VARCHAR2(30) CONSTRAINT acc_lo_nn NOT NULL, ManagerName VARCHAR2(30) CONSTRAINT acc_man_uk UNIQUE);
+Assignment – 6
+
+alter table Store rename column Name to StoreName;
+Assignment – 7 
+
+create table Bill (
+BillNo number primary key,
+StoreName varchar2(20),
+Shopperid number,
+Arcode char(5),
+Amount number,
+BillDate date,
+Quantity number(4) default 1,
+CONSTRAINT ch_quan CHECK(Quantity >0),
+CONSTRAINT fk_stn foreign key (StoreName) REFERENCES
+Store(StoreName),
+CONSTRAINT fk_shid foreign key (Shopperid) REFERENCES
+Shopper(Shopperid),
+CONSTRAINT fk_ar foreign key (ArCode) REFERENCES
+Article(ArCode)
+);
+Assignment – 8
+
+CREATE TABLE Supplier(SUpplierid VARCHAR2(6) CONSTRAINT acc_sup_pk PRIMARY KEY,
+Name VARCHAR2(30), ContactNo VARCHAR2(15) CONSTRAINT sup_nn NOT NULL,Emailid VARCHAR2(30));
+
+Assignment – 9
+
+ALTER TABLE Supplier ADD City VARCHAR2(10);
+
+Assignment-10
+ALTER TABLE Supplier DROP (Emailid);
+
+Assignment-11
+CREATE TABLE City(City VARCHAR(20) CONSTRAINT acc_uk UNIQUE)
+
+Assignment-12
+ALTER TABLE City DROP(City);
+
+
+Assignment – 13
+create table Address (
+HouseNo  number ,
+Street varchar2(30) ,
+city  varchar2(20),
+zip number(6),
+state varchar2(5),
+CONSTRAINT pk_addr primary key(HouseNo,Street,city),
+CONSTRAINT fk_addr foreign key (city) REFERENCES City(city),
+CONSTRAINT ch_zip CHECK(ZIP>=0)
+);
+
+Assignment-14
+ALTER TABLE Address MODIFY State VARCHAR2(20);
+
