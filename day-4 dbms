@@ -18,5 +18,13 @@ Excercise -27
 
 SELECT PRODID,CATEGORY,PRICE,DISCOUNT FROM Product ORDER BY CATEGORY DESC,PRICE ASC
 
+Excercise -28
 
+SELECT PRODID,CATEGORY,DISCOUNT FROM PRODUCT WHERE CATEGORY='Sports' OR CATEGORY='Apparel' ORDER BY CATEGORY ASC,DISCOUNT
+
+Excercise -29
+
+select to_char(SLDATE,'Month') MONTH,count(SLDATE) NUMBER_SALE from Sale group by to_char(SLDATE,'Month') order by count(SLDATE) desc
+
+Excercise -30
 
