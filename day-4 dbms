@@ -46,3 +46,7 @@ or
 
 select prodid,sum(quantity)  qty_sold from Saledetail group by prodid having sum(quantity) > (select max(quantity) from saledetail)
 
+Assignment -44
+
+select itemcode from item where abs(qtyonhand-reorderlevel) > 50
+
