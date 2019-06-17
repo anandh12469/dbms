@@ -28,3 +28,21 @@ select to_char(SLDATE,'Month') MONTH,count(SLDATE) NUMBER_SALE from Sale group b
 
 Excercise -30
 
+select distinct prodid,(select sum(quantity) from Saledetail where prodid in 102) qty_sold from Saledetail where prodid in 102
+
+or
+
+select distinct prodid,sum(quantity)  qty_sold from Saledetail where prodid in 102 group by prodid having sum(quantity) >1
+
+or
+
+select distinct prodid,sum(quantity)  qty_sold from Saledetail where prodid in 102 group by prodid 
+
+or 
+
+select prodid,sum(quantity)  qty_sold from Saledetail where prodid in 102 group by prodid having sum(quantity) > 1
+
+or
+
+select prodid,sum(quantity)  qty_sold from Saledetail group by prodid having sum(quantity) > (select max(quantity) from saledetail)
+
