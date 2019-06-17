@@ -86,3 +86,15 @@ Excercise -39
 
 select max(category) as category from Product group by category having count(category) > 1 
 
+Assignment -45
+
+select itemcode,avg(qtyavailable) as "Average Quantity" from RetailStock  group by itemcode having avg(qtyavailable) < 75
+
+Assignment -46
+
+select PymtMode,count(PymtDate) as pymtcount from Orders where PymtDate < '01-Jan-2015' group by pymtmode having count(PymtMode) > 1
+
+Assignment -47
+
+select sname,avg(quotedprice) as "Average quoted price" from quotation where qstatus in 'Closed' group by sname having avg(quotedprice) > 500
+
