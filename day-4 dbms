@@ -50,3 +50,39 @@ Assignment -44
 
 select itemcode from item where abs(qtyonhand-reorderlevel) > 50
 
+Excercise - 31
+
+select prodid,pdesc,price as "Old_Price",round(price-0.225*price,2) as "New_Price" from Product where prodid in 101 or prodid= 104
+
+Excercise -32
+
+select saleid,abs(round(months_between(SLDATE ,sysdate),1)) as month_aged from Sale 
+
+Excercise -33
+
+select round(avg(price),2) as "Avg",min(price) as "Min",max(price) as "Max",count(prodid) as "Total" from Product
+
+Excercise -34
+
+select concat(SNAME,concat(' is from ',LOCATION)) as RESULT from Salesman
+
+Excercise -35
+
+select to_char(to_date('Jan/10/2015','mm/dd/yyyy'),'Month') as "MONTH",'250000' as "AMOUNT" from dual
+
+Excercise -36
+
+select PRODID,PDESC,PRICE from Product order by price desc , PRODID desc
+
+Excercise -37
+
+select prodid,pdesc,price from Product order by pdesc asc
+
+Excercise -38
+
+select location,count(location) as NUMBER_SMAN from Salesman group by Location
+
+Excercise -39
+
+select max(category) as category from Product group by category having count(category) > 1 
+
