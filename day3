@@ -50,6 +50,10 @@ EXCERCISE -22
 
 DELETE FROM SaleDetail where QUANTITY >5;
 
+Assignment -15
+
+insert into Shopper (Shopperid,ShopperName,Gender,MobileNo,Address) values (101,'Mark Jane','Male',1234567890,'Allen Street, New York')
+
 Assignment -16
 
 insert into Article (ArCode,ArName,Rate,Quantity,Class) values ('A1001','Mouse',500,0,C)
