@@ -98,3 +98,26 @@ Assignment -47
 
 select sname,avg(quotedprice) as "Average quoted price" from quotation where qstatus in 'Closed' group by sname having avg(quotedprice) > 500
 
+Assignment -48
+
+select itemtype,category,round(avg(price),2) as "Average item price" from item where itemtype in 'Computer' or itemtype in 'FMCG' group by category,itemtype having avg(price) < 2000
+
+Assignment -49
+
+select job,avg(sal) as "Average Salary" from emp where job in 'MANAGER' or job in 'ANALYST' GROUP BY job
+
+Assignment -50
+
+select job,deptno,avg(sal) as "AVGSALARY" from emp where sal > 2000 and deptno <=20 group by job,deptno having avg(sal) > 2500
+
+Assignment -51
+
+select empid,empname,salary,
+case
+    when designation = 'Administrator' then salary*0.1
+   when designation = 'Manager' then salary*0.05
+   when designation = 'Billing Staff' then salary*0.2
+   when designation = 'Security' then salary*0.25  
+   when designation = 'Others' then salary*0.02
+end as "SAlary" 
+from empdetails
