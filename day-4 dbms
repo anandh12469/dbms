@@ -201,3 +201,8 @@ from orders
 aSSIGNMENT -56
 
 select descr from item where LENGTH(descr) > 15
+
+Assignment -57
+
+SELECT regexp_replace(roid,'[^0-9]') numericroid FROM RETAILOUTLET
+
