@@ -1,3 +1,5 @@
+ALL ERRORS ARE CLEARED EXPECTED Excercise -30 (logical Error)
+
 Excercise -23
 
 select PRODID,PDESC,CATEGORY from Product where lower(CATEGORY) = 'electronics'
@@ -26,7 +28,7 @@ Excercise -29
 
 select to_char(SLDATE,'Month') MONTH,count(SLDATE) NUMBER_SALE from Sale group by to_char(SLDATE,'Month') order by count(SLDATE) desc
 
-Excercise -30
+Excercise -30 (logical Error)
 
 select distinct prodid,(select sum(quantity) from Saledetail where prodid in 102) qty_sold from Saledetail where prodid in 102
 
@@ -46,13 +48,60 @@ or
 
 select prodid,sum(quantity)  qty_sold from Saledetail group by prodid having sum(quantity) > (select max(quantity) from saledetail)
 
+
+Assignment -40
+
+select itemtype,
+case
+when price>0 and price<500 then 'Cheap'
+when price>499 and price<2000 then 'Affordable'
+when price>1999 and price<5000 then 'Expensive'
+when price>4999 then 'Very Expensive'
+end as classification
+
+from item 
+
+group by itemtype,
+case
+when price>0 and price<500 then 'Cheap'
+when price>499 and price<2000 then 'Affordable'
+when price>1999 and price<5000 then 'Expensive'
+when price>4999 then 'Very Expensive'
+end 
+
+order by itemtype,
+case
+when price>0 and price<500 then 'Cheap'
+when price>499 and price<2000 then 'Affordable'
+when price>1999 and price<5000 then 'Expensive'
+when price>4999 then 'Very Expensive'
+end
+
+Assignment -41
+    
+select to_char(qdate,'Month') month,count(*) quotationcount
+from quotation
+group by to_char(qdate,'Month') 
+order by to_char(qdate,'Month')
+
+Assignment -42
+
+select orderid,round((pymtdate-orderdate-0.4)/30,2) "No of Months" 
+from orders
+where round((pymtdate-orderdate-0.4)/30,2)>0.1
+
+Assignment -43
+
+select empid,salary as "Current Salary",salary+salary*0.2 as "New Salary",salary*0.2 as "Incremented Amount" from empdetails where designation in 'Manager'
+
+
 Assignment -44
 
 select itemcode from item where abs(qtyonhand-reorderlevel) > 50
 
 Excercise - 31
 
-select prodid,pdesc,price as "Old_Price",round(price-0.225*price,2) as "New_Price" from Product where prodid in 101 or prodid= 104
+select prodid,pdesc,price "Old_Price",round(price*.775,2)"New_Price" from product where category='Sports'
 
 Excercise -32
 
@@ -142,9 +191,13 @@ Assignemt -54
 
 select empid,empname,worksin
 from empdetails
-where designation='Billing Staff
+where designation='Billing Staff'
 
 Assignment -55
 
 select orderid,status,nvl(pymtmode,'Payment yet not done') pymtmode
 from orders
+
+aSSIGNMENT -56
+
+select descr from item where LENGTH(descr) > 15
