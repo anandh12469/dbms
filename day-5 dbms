@@ -1,0 +1,14 @@
+Excercise -40
+
+select sid,sname,location from Salesman where sname like '%e%' and location like '%o%'
+union all
+select sid,sname,location from Salesman where sname like '%a%' and location like '%a%'
+
+eXCERCISE -41
+
+select prodid,pdesc,category,discount from Product where discount < 10 UNION ALL select prodid,pdesc,category,discount from Product where CATEGORY IN 'Sports' 
+
+Excercise -42
+
+select prodid,pdesc,category,discount from Product where discount < 10 UNION  select prodid,pdesc,category,discount from Product where CATEGORY IN 'Sports' 
+
