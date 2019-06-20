@@ -238,3 +238,6 @@ Assignment -65
 
 select orderid,months_between(orderdate,pymtdate) as"No of Months" from orders
 
+Assignment -66
+
+select sum(quotedprice) as totalprice from quotation where qstatus in 'Accepted' group by to_char(quotation.qdate,'MM') having to_char(quotation.qdate,'MM')  = 06 
