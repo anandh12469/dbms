@@ -12,3 +12,28 @@ Excercise -42
 
 select prodid,pdesc,category,discount from Product where discount < 10 UNION  select prodid,pdesc,category,discount from Product where CATEGORY IN 'Sports' 
 
+Excercise -43
+
+select 'S' as Type,sid as id,sname as details  from salesman 
+union
+select 'P' as Type,prodid as id,category as details  from product 
+
+Excercise -44
+
+select id,ename,dept,e.compid,c.make 
+from employee e inner join computer c 
+on e.compid=c.compid
+
+Excercise -45
+
+select id,ename,e.compid,c.make 
+from employee e inner join computer c on e.compid=c.compid
+where c.model='Precision' or  c.model='Edge'
+
+Excercise -46
+
+select e.dept,count(c.make) "NUMBER OF COMPUTERS" from employee e 
+inner join computer c 
+on make='Dell' and e.compid=c.compid
+group by e.dept,c.make
+
