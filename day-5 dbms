@@ -39,4 +39,19 @@ group by e.dept,c.make
 
 Excercise -47
 
-select Salesman.sid,Sale.sldate from Salesman join Sale on Salesman.sid=Sale.sid
+select Salesman.sid,Sale.sldate from Salesman  join Sale on Salesman.sid=Sale.sid where Salesman.location in 'London'
+
+Excercise-50
+
+select s.sid,s.sname,sum(p.price*sd.quantity) as TAMOUNT,sum(((p.discount*p.price)/100)*sd.quantity) as Tdiscount from salesman s
+join sale sa on sa.sid = s.sid
+join saledetail sd on sd.saleid=sa.saleid
+join product p on p.prodid=sd.prodid
+group by s.sid,s.sname
+order by TAMOUNT desc
+
+Excercise -51
+
+select s.saleid,sd.prodid,s.sid,sm.sname from sale s 
+join Saledetail sd on sd.saleid=s.saleid
+join salesman sm on sm.sid=s.sid
