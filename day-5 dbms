@@ -37,3 +37,6 @@ inner join computer c
 on make='Dell' and e.compid=c.compid
 group by e.dept,c.make
 
+Excercise -47
+
+select Salesman.sid,Sale.sldate from Salesman join Sale on Salesman.sid=Sale.sid
