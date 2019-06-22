@@ -55,3 +55,13 @@ Excercise -51
 select s.saleid,sd.prodid,s.sid,sm.sname from sale s 
 join Saledetail sd on sd.saleid=s.saleid
 join salesman sm on sm.sid=s.sid
+
+Excercise -52 (logical error)
+
+select s.sid,s.sname,nvl(sum(p.price*sd.quantity),0) as TAMOUNT,nvl(sum(((p.discount*p.price)/100)*sd.quantity),0) as Tdiscount from salesman s
+left join sale sa on sa.sid = s.sid
+left join saledetail sd on sd.saleid=sa.saleid
+left join product p on p.prodid=sd.prodid
+group by s.sid,s.sname
+ORDER BY TAMOUNT NULLS FIRST
+
