@@ -65,3 +65,18 @@ left join product p on p.prodid=sd.prodid
 group by s.sid,s.sname
 ORDER BY TAMOUNT NULLS FIRST
 
+Assignment -67
+
+select e.ename,e.sal,d.dname from emp e 
+join dept d on d.deptno=e.deptno where e.sal >2000
+
+Assignment -68
+
+select e.ename,d.dname from emp e 
+join dept d on d.deptno=e.deptno where job in 'MANAGER'
+
+Assignment -69 (Logic Error)
+
+select d.dname from dept d 
+join emp e on e.deptno=e.deptno  where e.sal >1500 and d.loc not in 'BOSTON' group by d.dname having count(d.dname) > 1
+
