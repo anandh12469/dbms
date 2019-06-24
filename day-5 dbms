@@ -73,6 +73,34 @@ join saledetail sd  on sd.saleid=s.saleid
 join product p on p.prodid=sd.prodid
 group by sm.location,p.category
 
+Excercise -54
+
+select e.ename,e.dept,nvl(c.model,'Not allocated') model from employee e 
+left join computer c on c.compid = e.compid 
+
+Excercise - 55
+
+select e.id,e.ename,e.dept,c.model from employee e
+full join computer c on c.compid = e.compid
+
+Excercise - 56
+
+select m.id,m.ename,m.manager mgrid,e.ename mgrname,c.model e_model,t.model m_model from employee m 
+join employee e on e.id=m.manager 
+join computer c on c.compid=m.compid 
+join computer t on t.compid=e.compid
+
+Excercise -57
+
+select s.sid,s.sname 
+from salesman s 
+left join sale m on s.sid=m.sid
+where m.sid is null
+
+Excercise -58
+
+select  n.prodid,n.category,n.price from product n
+join product p on p.price = n.price and p.prodid != n.prodid
 
 Assignment -67
 
@@ -95,4 +123,15 @@ select e.ename,v.vehiclename from emp e
 left join empvehicle ev on ev.EmpNo = e.EmpNo
 left join vehicle v on v.vehicleid = ev.vehicleid
 
+Assignment -71
 
+select i.itemcode,i.descr,q.sname 
+from item i 
+inner join quotation q 
+on i.itemcode=q.itemcode 
+
+Assignment -72
+
+select c.custid "Customer Id",c.custname "Customer Name"
+from customer c join 
+empdetails e on e.emailid=c.emailid
