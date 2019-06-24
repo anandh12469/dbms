@@ -65,6 +65,15 @@ left join product p on p.prodid=sd.prodid
 group by s.sid,s.sname
 ORDER BY TAMOUNT NULLS FIRST
 
+Excercide -53
+
+select sm.location,p.category,sum(sd.quantity) as "Total Quantity" from salesman sm
+join sale s on s.sid=sm.sid
+join saledetail sd  on sd.saleid=s.saleid
+join product p on p.prodid=sd.prodid
+group by sm.location,p.category
+
+
 Assignment -67
 
 select e.ename,e.sal,d.dname from emp e 
@@ -75,8 +84,15 @@ Assignment -68
 select e.ename,d.dname from emp e 
 join dept d on d.deptno=e.deptno where job in 'MANAGER'
 
-Assignment -69 (Logic Error)
+Assignment -69 
 
 select d.dname from dept d 
-join emp e on e.deptno=e.deptno  where e.sal >1500 and d.loc not in 'BOSTON' group by d.dname having count(d.dname) > 1
+join emp e on e.deptno=d.deptno  where e.sal >1500   group by d.dname having count(d.dname) > 1
+
+Assignment -70
+
+select e.ename,v.vehiclename from emp e
+left join empvehicle ev on ev.EmpNo = e.EmpNo
+left join vehicle v on v.vehicleid = ev.vehicleid
+
 
