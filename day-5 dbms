@@ -41,6 +41,18 @@ Excercise -47
 
 select Salesman.sid,Sale.sldate from Salesman  join Sale on Salesman.sid=Sale.sid where Salesman.location in 'London'
 
+Excercise-48
+
+select s.sid,s.sname,s.location 
+from salesman s 
+inner join salesman m on 
+s.sid!=m.sid and s.location=m.location
+
+Excercise -49
+
+select m.sname,s.saleid
+from salesman m left outer join sale s on s.sid=m.sid
+
 Excercise-50
 
 select s.sid,s.sname,sum(p.price*sd.quantity) as TAMOUNT,sum(((p.discount*p.price)/100)*sd.quantity) as Tdiscount from salesman s
@@ -135,3 +147,14 @@ Assignment -72
 select c.custid "Customer Id",c.custname "Customer Name"
 from customer c join 
 empdetails e on e.emailid=c.emailid
+
+Assignment -73
+
+select i.itemcode,i.descr,i.category,q.quotedprice from item i
+join quotation q on q.itemcode=i.itemcode where q.qstatus='Accepted' 
+
+Assignment -74
+
+select r.roid,i.descr,i.itemtype,r.unitprice from retailstock r
+join item i on i.itemcode=r.itemcode where r.unitprice >1500
+
