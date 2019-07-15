@@ -158,3 +158,16 @@ Assignment -74
 select r.roid,i.descr,i.itemtype,r.unitprice from retailstock r
 join item i on i.itemcode=r.itemcode where r.unitprice >1500
 
+Assignment -75
+
+select q.itemcode,q.sname,sum(o.qtyordered) as totalquantity from orders o 
+join quotation q on q.quotationid=o.quotationid 
+group by o.quotationid,q.sname,q.itemcode 
+having sum(o.qtyordered) >=100 
+
+Assignment -76
+
+select i.itemcode,i.descr from item i
+join quotation q on q.itemcode=i.itemcode
+where q.quotedprice in '120' group by i.itemcode,i.descr
+
