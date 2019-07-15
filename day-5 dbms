@@ -171,3 +171,15 @@ select i.itemcode,i.descr from item i
 join quotation q on q.itemcode=i.itemcode
 where q.quotedprice in '120' group by i.itemcode,i.descr
 
+Assignment -77
+
+select q.sname,q.quotationid from quotation q 
+join orders o on o.quotationid=q.quotationid
+where to_date(delivereddate)-to_date(orderdate)<=5
+
+Assignment -78
+
+select i.itemcode,i.descr,nvl(p.billamount,0) billamount,nvl(p.custid,0) custid from item i 
+left join purchasebill p on p.itemcode=i.itemcode 
+where i.itemtype in 'FMCG' 
+
