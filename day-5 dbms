@@ -177,9 +177,50 @@ select q.sname,q.quotationid from quotation q
 join orders o on o.quotationid=q.quotationid
 where to_date(delivereddate)-to_date(orderdate)<=5
 
-Assignment -78
+Assignment -80
 
 select i.itemcode,i.descr,nvl(p.billamount,0) billamount,nvl(p.custid,0) custid from item i 
 left join purchasebill p on p.itemcode=i.itemcode 
-where i.itemtype in 'FMCG' 
+where i.itemtype in 'FMCG'
+
+Assignment -83
+
+select empname,designation,emailid from empdetails where worksin in 'R1001' and empname not in 'George'
+
+Assignment -85
+
+select c.custname,p.billamount from customer c
+join purchasebill p on p.custid=c.custid where billamount > 5000
+
+Assignment -86
+
+select r.roid,count(rs.qtyavailable) "Number of items" from retailoutlet r
+join retailstock rs on rs.roid=r.roid group by r.roid
+
+Assignment -87
+
+select i.itemcode,i.descr,ro.location,r.qtyavailable from item i
+join retailstock r on r.itemcode=i.itemcode
+join retailoutlet ro on ro.roid=r.roid where itemtype in 'Apparels'
+
+Assignment -88
+
+select i.itemcode,i.descr,nvl(q.quotationid,'No quotation received') quotationid from item i
+left join quotation q on q.itemcode=i.itemcode order by nvl(q.quotationid,'No quotation received') asc
+
+Assignment -89
+
+select i.itemcode,i.descr,ro.roid,r.qtyavailable from item i
+join retailstock r on r.itemcode=i.itemcode
+join retailoutlet ro on ro.roid=r.roid 
+
+Assignment -90
+
+select i.descr,i.itemtype,p.billamount from item i
+join purchasebill p on p.itemcode=i.itemcode where p.roid in 'R1001'
+
+Assignment -92
+
+select i.itemtype,i.descr,nvl(q.quotationid,'No quotation received') "Available Quotation number" from item i
+left join quotation q on q.itemcode=i.itemcode where i.itemtype not in 'Apparels'
 
