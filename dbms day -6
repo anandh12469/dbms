@@ -1,0 +1,4 @@
+Excercise -59
+
+select saleid,sldate from sale where sldate = (select max(sldate) from sale)
+
