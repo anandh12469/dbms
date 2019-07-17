@@ -177,11 +177,32 @@ select q.sname,q.quotationid from quotation q
 join orders o on o.quotationid=q.quotationid
 where to_date(delivereddate)-to_date(orderdate)<=5
 
+Assignment -78
+
+select nvl(e.empname,'No Manager') empname ,i.category,sum(rs.qtyavailable) as totalquantity from item i 
+join retailstock rs on rs.itemcode = i.itemcode
+join retailoutlet ro on ro.roid = rs.roid
+left join empdetails e on e.empid = ro.managerid
+group by i.category,e.empname
+
+Assignment -79
+
+select ro.location,c.custtype,sum(pb.quantity) as totalquantity from purchasebill pb
+join customer c on c.custid = pb.custid and c.gender = 'M'
+join item i on i.itemcode = pb.itemcode
+join retailoutlet ro on ro.roid = pb.roid
+where i.itemtype in ('Apparels','Computer')
+group by ro.location,c.custtype
+
 Assignment -80
 
 select i.itemcode,i.descr,nvl(p.billamount,0) billamount,nvl(p.custid,0) custid from item i 
 left join purchasebill p on p.itemcode=i.itemcode 
 where i.itemtype in 'FMCG'
+
+Assignment -81
+
+
 
 Assignment -83
 
