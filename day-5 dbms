@@ -208,6 +208,10 @@ Assignment -83
 
 select empname,designation,emailid from empdetails where worksin in 'R1001' and empname not in 'George'
 
+Assignment -84
+
+select c.custid,c.custname from customer c join customer d on d.address=c.address and c.custname!=d.custname
+
 Assignment -85
 
 select c.custname,p.billamount from customer c
