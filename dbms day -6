@@ -2,3 +2,7 @@ Excercise -59
 
 select saleid,sldate from sale where sldate = (select max(sldate) from sale)
 
+Excercise -60
+
+select sname from salesman where sid in(select sid from sale group by sid having count(sid) >= 2)
+
